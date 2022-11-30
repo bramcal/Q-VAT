@@ -1,16 +1,15 @@
 # **Quantitative Vascular Analysis Tool (Q-VAT)**
 
-<img src="Images/Q-vat%20logo.png" width="300" align="right">
+<img src="Images/Q-vat%20logo.png" width="400" align="right">
 
-Q-VAT is an ImageJ tool to perform automated quantification of the vasculature in tiled, segmented two-dimensional images.
+Q-VAT is an ImageJ macro to perform automated quantification of the vasculature in tiled, segmented two-dimensional images. Q-VAT is an easy to use tool  that allows the user to automatically analyze and quantify the vascular network of large datasets in a tile-wise manner. Q-VAT was originally developed to analyze and quantify the vascular network the immuno-stained microscopy images of large samples, but can be used to quantify the vasculature in any type of segmentend 2D images.
+
+We have included a pre-processing pipeline, the Q-VAT masking tool, that can be used to generate tiled, segmented 2D images from immuno-stained images of large samples. 
 
 
+# **Pre-processing: Q-VAT masking Tool**
 
-
-
-# **Q-VAT masking Tool**
-
-The Q-VAT masking Tool  uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
+The Q-VAT masking Tool uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
 
 <img src="Images/Masking_tool_brain.png" width="600" align="center">
 
@@ -23,8 +22,8 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 - Dimension file (.txt): **The first file in the folder** should be a .txt file that contains:
 
-   - Width of the tiles you want to analyse (px)
-   - Height of the tiles in pixels you want to analyse (px)
+   - Width of the tiles you want to analyse (px).
+   - Height of the tiles in pixels you want to analyse (px).
    - Percentage overlap that has been used to acquire the tiles (%).
 
         This is important if you want to split the original image into the original acquisition tiles removing the overlapping parts (Q-VAT masking tool assumes Down&Ritght stitching). Use 0 if no overlap was used or if you want to split the original images in tiles with a fixed size.
@@ -53,27 +52,33 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 **Output Parameters:**
 
+<img src="Images/output_file_organization_masking_tool.PNG" width="270" align="right">
+
 The Q-VAT masking tool will automatically generate the following sub-directories/files within each sample folder:
-- 01_split_vascular_mask: Sub-directory that contains the Segmented tiles obtained by dividing the vascular mask into smaller tiles (.tif)
-- [02_co_localized_chan1:  Sub-directory that contains the Segmented tiles of the first co-localized channel (.tif) ]
-- [03_col_localized_chan2: Sub-directory that contains the Segmented tiles of the second co-localized channel (.tif)]
-- 04_Tissue_mask: Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif)
-- 05_dimensions.txt: text file with the tile dimensions used to generate the smaller tiles (.txt)
+- 01_split_vascular_mask: Sub-directory that contains the Segmented tiles obtained by dividing the vascular mask into smaller tiles (.tif).
+- [02_co_localized_chan1:  Sub-directory that contains the Segmented tiles of the first co-localized channel (.tif). ]
+- [03_col_localized_chan2: Sub-directory that contains the Segmented tiles of the second co-localized channel (.tif).]
+- 04_Tissue_mask: Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif).
+- 05_dimensions.txt: text file with the tile dimensions used to generate the smaller tiles (.txt).
 - TissueMask: Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
 - VascularMask: Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
  
 
 # **Q-VAT**
 
-EXPLAIN Q-VAT - 
+The ImageJ macro will loop over all tiles and calculate morpholigcal read-outs that characterize the vascular network for each tile. 
 
+Q-VAT requires 8-bit binary TIF Files
+Q-VAT maskingtool to perform the pre-processing
 
-**File organization**
+The Q-VAT tool is entirely automated and requires no user intervention during the analysis
+
+**File organization:**
 
 done autmatically when the Q-VAT masking tool is used
 order of the files is important! (names are not important)
 
-#Input Parameters
+**Input Parameters:**
 - Input directory:
 - Pixel calibration (µm/px):
 - Vascular compartement separation threshold (µm):
@@ -84,7 +89,7 @@ order of the files is important! (names are not important)
 
 <img src="Images/Q-VAT-GUI.png" width="600" align="center">
 
-**Output Parameters**
+**Output Parameters:**
 - Output....
 
 # Requirements:
