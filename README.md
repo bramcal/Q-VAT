@@ -2,7 +2,7 @@
 
 <img src="Images/Q-vat%20logo.png" width="400" align="right">
 
-Q-VAT is an ImageJ macro to perform automated quantification of the vasculature in tiled, segmented two-dimensional images. Q-VAT is an easy to use tool  that allows the user to automatically analyze and quantify the vascular network of large datasets in a tile-wise manner. Q-VAT was originally developed to analyze and quantify the vascular network the immuno-stained microscopy images of large samples, but can be used to quantify the vasculature in any type of segmentend 2D images.
+Q-VAT is an ImageJ macro to perform automated quantification of the vasculature in tiled, segmented two-dimensional images. Q-VAT is an easy to use tool that allows the user to automatically analyze and quantify the vascular network of large datasets in a tile-wise manner. Q-VAT was originally developed to analyze and quantify the vascular network the immuno-stained microscopy images of large samples, but can be used to quantify the vasculature in any type of segmentend 2D images.
 
 We have included a pre-processing pipeline, the Q-VAT masking tool, that can be used to generate tiled, segmented 2D images from immuno-stained images of large samples. 
 
@@ -66,7 +66,7 @@ The Q-VAT masking tool will automatically generate the following sub-directories
 
 # **Q-VAT**
 
-The Q-VAT Imagej macro loops autmotically over the provided tiles and uses a succession of ImageJ commands to calculate morpholigcal read-outs that characterize the vascular network within each tile. 
+The Q-VAT Imagej macro loops automaticaaly over the provided tiles for each sample and uses a succession of ImageJ commands to calculate morpholigcal read-outs that characterize the vascular network within each tile. 
 
 
  performs quantification of the vasculature based on the provided vascular mask and tissue mask. 
@@ -92,6 +92,8 @@ order of the files is important! (names are not important)
 - Prune ends threshold (µm):
 - Save_Output_Figures (Yes/No):
 - Colocalization_channels (None, Channel2, Channel 2 &3): 
+
+**Graphical User Interface:**
 
 <img src="Images/Q-VAT-GUI.png" width="600" align="center">
 
