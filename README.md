@@ -14,11 +14,12 @@ The Q-VAT masking Tool  uses a succession of several ImageJ commands to automati
 
 <img src="Images/Masking_tool_brain.png" width="600" align="center">
 
+
 **File organization:**
 
 <img src="Images/file_organisation_masking_tool.PNG" width="200" align="right">
 
-The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing tool will automatically loop over the different subfolders and load the correct files. It is therefore important to maintain a fixed order of the files. The exact naming of the file is not important. Within the Input directory there should be a sub-directory for each subject/sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following files: 
+The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing tool will automatically loop over the different subfolders and load the correct files. It is therefore important to maintain a fixed order of the files. The exact naming of the file is not important. Within the Input directory there should be a sub-directory for each sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following files: 
 
 - Dimension file (.txt): **The first file in the folder** should be a .txt file that contains:
 
@@ -37,27 +38,35 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 - Single channel stitched High resolution (immuno-stained) images. One image if you want to analyse only a single channel. Two or three images if you want to analyse one or two co-localized channels. The main channels should always be the first image file in the folder (e.g. image_Chan1.tif, image_Chan2.tif, image_Chan3.tif). 
 
 
-**Input Parameters**
-- Input Directory: Input directory containing sub-directories with the data for each channel
-- Pixel Calibration (µm/px): calibration of the pixels in the original image
+**Input Parameters:**
+- Input Directory: Input directory containing sub-directories for each sample.
+- Pixel Calibration (µm/px): calibration of the pixels in the original image.
 - Radius of the biggest Object (µm): Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
 - Particle size lower range (µm²): Minimum area of particles that should be included in the tissue mask (Analyze particles).
 - Radius for median filtering (µm): Radius that is used for median filtering.
 - File extension: File extension of the original images.
 
+
+**Graphical User Interface:**
+
 <img src="Images/Q-VAT%20masking%20tool%20GUI.PNG" width="600" align="center">
 
-**Output Parameters**
-The Q-VAT masking tool will automatically generate the following ouptut within each sample folder:
-- 01_split_vascular_mask:
-- ()
-- ()
-- 04_Tissue_mask: 
-- 05_dimensions.txt:
-- TissueMask
-- VascularMask
+**Output Parameters:**
+
+The Q-VAT masking tool will automatically generate the following sub-directories/files within each sample folder:
+- 01_split_vascular_mask: Sub-directory that contains the Segmented tiles obtained by dividing the vascular mask into smaller tiles (.tif)
+- [02_co_localized_chan1:  Sub-directory that contains the Segmented tiles of the first co-localized channel (.tif) ]
+- [03_col_localized_chan2: Sub-directory that contains the Segmented tiles of the second co-localized channel (.tif)]
+- 04_Tissue_mask: Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif)
+- 05_dimensions.txt: text file with the tile dimensions used to generate the smaller tiles (.txt)
+- TissueMask: Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
+- VascularMask: Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
+ 
 
 # **Q-VAT**
+
+EXPLAIN Q-VAT - 
+
 
 **File organization**
 
