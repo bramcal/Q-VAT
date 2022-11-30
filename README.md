@@ -10,7 +10,9 @@ Q-VAT is an ImageJ tool to perform automated quantification of the vasculature i
 
 # **Q-VAT masking Tool**
 
-The Q-VAT masking Tool  uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts. First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
+The Q-VAT masking Tool  uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
+
+<img src="Images/Masking_tool_brain.png" width="600" align="center">
 
 **File organization:**
 
@@ -36,14 +38,14 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 
 **Input Parameters**
-- Input Directory: Input directory that contains sub-directories with the data 
-- Pixel Calibration (µm/px):
-- Radius of the biggest Object  (µm):
-- Particle size lower range (µm²):
-- Radius for median filtering (µm):
-- File extension: 
+- Input Directory: Input directory containing sub-directories with the data for each channel
+- Pixel Calibration (µm/px): calibration of the pixels in the original image
+- Radius of the biggest Object (µm): Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
+- Particle size lower range (µm²): Minimum area of particles that should be included in the tissue mask (Analyze particles).
+- Radius for median filtering (µm): Radius that is used for median filtering.
+- File extension: File extension of the original images.
 
-<img src="Images/Q-VAT%20masking%20tool GUI.PNG" width="600" align="center">
+<img src="Images/Q-VAT%20masking%20tool%20GUI.PNG" width="600" align="center">
 
 **Output Parameters**
 The Q-VAT masking tool will automatically generate the following ouptut within each sample folder:
