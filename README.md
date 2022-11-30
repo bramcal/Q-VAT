@@ -20,7 +20,7 @@ The Q-VAT masking Tool uses a succession of several ImageJ commands to automatic
 
 The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing tool will automatically loop over the different subfolders and load the correct files. It is therefore important to maintain a fixed order of the files. The exact naming of the file is not important. Within the Input directory there should be a sub-directory for each sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following files: 
 
-- Dimension file (.txt): **The first file in the folder** should be a .txt file that contains:
+- Dimension file (.txt): **The first file in the folder** should be a .txt file that contain (you can assure that this is always the first file by adding "00_" in front of the filename). 
 
    - Width of the tiles you want to analyse (px).
    - Height of the tiles in pixels you want to analyse (px).
@@ -66,16 +66,22 @@ The Q-VAT masking tool will automatically generate the following sub-directories
 
 # **Q-VAT**
 
-The ImageJ macro will loop over all tiles and calculate morpholigcal read-outs that characterize the vascular network for each tile. 
+The Q-VAT Imagej macro loops autmotically over the provided tiles and uses a succession of ImageJ commands to calculate morpholigcal read-outs that characterize the vascular network within each tile. 
 
-Q-VAT requires 8-bit binary TIF Files
-Q-VAT maskingtool to perform the pre-processing
+
+ performs quantification of the vasculature based on the provided vascular mask and tissue mask. 
 
 The Q-VAT tool is entirely automated and requires no user intervention during the analysis
 
 **File organization:**
 
-done autmatically when the Q-VAT masking tool is used
+Q-VAT requires a fixed order of the files (exact naming is not important)
+
+Q-VAT requires 8-bit binary TIF Files
+
+When the pre-processing is performed using the Q-VAT Masking Tool, the files will be automatically saved according to the required file organization. 
+
+
 order of the files is important! (names are not important)
 
 **Input Parameters:**
@@ -106,3 +112,8 @@ Download and Unzip the Prune_Skeleton_Ends.bsh file and copy it into the FIji pl
 #  How to cite:
 
 If using Q-VAT, please cite: (link paper)
+
+
+# References
+
+references to other plugins??
