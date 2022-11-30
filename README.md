@@ -1,6 +1,10 @@
 # Quantitative Vascular Analysis Tool (Q-VAT)
 
+<img src="Images/Q-vat%20logo.png" width="300" align="right">
+
 Q-VAT is an ImageJ tool to perform automated quantification of the vasculature in tiled, segmented two-dimensional images.
+
+
 
 
 
