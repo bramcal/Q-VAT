@@ -10,6 +10,8 @@ Q-VAT is an ImageJ tool to perform automated quantification of the vasculature i
 
 # Q-VAT Masking Tool
 
+# Q-VAT
+
 # Requirements:
 
 Before using the Q-VAT you should install the following plugins: 
