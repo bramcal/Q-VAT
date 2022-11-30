@@ -40,6 +40,7 @@ The Q-VAT masking tool will automatically generate the following ouptut within e
 # Q-VAT
 
 **File organization**
+
 done autmatically when the Q-VAT masking tool is used
 order of the files is important! (names are not important)
 
