@@ -7,18 +7,18 @@ Q-VAT is an ImageJ macro to perform automated quantification of the vasculature 
 We have included a pre-processing pipeline, the Q-VAT masking tool, that can be used to generate tiled, segmented 2D images from immuno-stained images of large samples. 
 
 
-# Pre-processing: Q-VAT masking Tool
+## **Pre-processing: Q-VAT masking Tool**
 
 The Q-VAT masking Tool uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
 
 <img src="Images/Masking_tool_brain.png" width="600" align="center">
 
 
-###### File organization:
+### **File organization:**
 
 <img src="Images/file_organisation_masking_tool.PNG" width="200" align="right">
 
-The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing tool will automatically loop over the different subfolders and load the correct files. It is therefore important to maintain a fixed order of the files. The exact naming of the file is not important. Within the Input directory there should be a sub-directory for each sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following files: 
+The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing tool will automatically loop over the different subfolders and load the correct files. It is therefore important to maintain a fixed order of the files. The exact naming of the file is not important. Within the input directory there should be a sub-directory for each sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following files: 
 
 - Dimension file (.txt): **The first file in the folder** should be a .txt file that contain (you can assure that this is always the first file by adding "00_" in front of the filename). 
 
@@ -37,7 +37,8 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 - Single channel stitched High resolution (immuno-stained) images. One image if you want to analyse only a single channel. Two or three images if you want to analyse one or two co-localized channels. The main channels should always be the first image file in the folder (e.g. image_Chan1.tif, image_Chan2.tif, image_Chan3.tif). 
 
 
-###### Input Parameters:
+### **Input Parameters:**
+
 - Input Directory: Input directory containing sub-directories for each sample.
 - Pixel Calibration (µm/px): calibration of the pixels in the original image.
 - Radius of the biggest Object (µm): Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
@@ -46,45 +47,49 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 - File extension: File extension of the original images.
 
 
-###### Graphical User Interface:
+### **Graphical User Interface:**
 
 <img src="Images/Q-VAT%20masking%20tool%20GUI.PNG" width="600" align="center">
 
-###### Output Parameters:
+### **Output Parameters:**
 
 <img src="Images/output_file_organization_masking_tool.PNG" width="270" align="right">
 
 The Q-VAT masking tool will automatically generate the following sub-directories/files within each sample folder:
-- 01_split_vascular_mask: Sub-directory that contains the Segmented tiles obtained by dividing the vascular mask into smaller tiles (.tif).
-- [02_co_localized_chan1:  Sub-directory that contains the Segmented tiles of the first co-localized channel (.tif). ]
-- [03_col_localized_chan2: Sub-directory that contains the Segmented tiles of the second co-localized channel (.tif).]
+
+- 01_split_vascular_mask: Sub-directory that contains tiles with the segmented vasculature obtained by dividing the vascular mask into smaller tiles (.tif).
+- [02_co_localized_chan1:  Sub-directory that contains tiles with the segmented vasculature of the first co-localized channel (.tif). ]
+- [03_col_localized_chan2: Sub-directory that contains tiles with the segmented vasculature of the second co-localized channel (.tif).]
 - 04_Tissue_mask: Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif).
 - 05_dimensions.txt: text file with the tile dimensions used to generate the smaller tiles (.txt).
 - TissueMask: Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
 - VascularMask: Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
  
 
-# **Q-VAT**
+## **Q-VAT**
 
-The Q-VAT Imagej macro loops automaticaaly over the provided tiles for each sample and uses a succession of ImageJ commands to calculate morpholigcal read-outs that characterize the vascular network within each tile. 
+The Q-VAT Imagej macro loops over the provided tiles for each sample and uses a succession of ImageJ commands to calculate morpholigcal read-outs that characterize the vascular network within each tile. The obtained morphological read-outs are normalized to the tissue area and saved into an Excel file (.xls) file that can be used for statistical analysis. The Q-VAT tool is entirely automated and requires no user intervention during the analysis.
+
+### **File organization:**
+
+<img src="Images/input_file_organization_Q-VAT.PNG" width="270" align="right">
+
+Q-VAT requires a fixed order of the files (the exact naming is not important).When the pre-processing is performed using the Q-VAT Masking Tool, the files will be automatically saved according to the required file organization. Within the input directory there should be a sub-directory for each sample that you want to processed. Each of these subdirectories (e.g. subj001) should have the following sub-directories: 
+
+- The **first Sub-directory** should contain the tiles with the segemented vasculauture (.tif).
+- [When analyzing a single co-localized channel: Sub-directory with the segmented vasculature tiles of the first co-localized channel (.tif). ]
+- [When analyzing two co-localized channels: Sub-directory with the segmented vasculature tiles of the second co-localized channel (.tif). ]
+- The **first sub-directory after the sub-directories with the segmented vasculature** should contain the tiles with the segmented tissue area (used for normalization). This will be the second sub-directory if only a single channel is analyzed.
+
+The tiles should be saved as filename_00X_00Y with X=Column number and Y=Row number(e.g. Image_Chan1_001_008.tif). 
+
+**Note**: Background pixel intensity values should be set to 0 (i.e. background in the tissue mask,  extravascular space in the segmented vascular mask). 
 
 
- performs quantification of the vasculature based on the provided vascular mask and tissue mask. 
+### **Input Parameters:**
 
-The Q-VAT tool is entirely automated and requires no user intervention during the analysis
+The user only needs to provide the correct data directory and several input parameters in the Graphical User Interface (GUI) 
 
-###### File organization:
-
-Q-VAT requires a fixed order of the files (exact naming is not important)
-
-Q-VAT requires 8-bit binary TIF Files
-
-When the pre-processing is performed using the Q-VAT Masking Tool, the files will be automatically saved according to the required file organization. 
-
-
-order of the files is important! (names are not important)
-
-###### Input Parameters:
 - Input directory:
 - Pixel calibration (µm/px):
 - Vascular compartement separation threshold (µm):
@@ -93,14 +98,14 @@ order of the files is important! (names are not important)
 - Save_Output_Figures (Yes/No):
 - Colocalization_channels (None, Channel2, Channel 2 &3): 
 
-###### Graphical User Interface:
+### **Graphical User Interface:**
 
 <img src="Images/Q-VAT-GUI.png" width="600" align="center">
 
-###### Output Parameters:
+### **Output Parameters:**
 - Output....
 
-###### Requirements:
+## **Requirements:**
 
 Before using the Q-VAT you should install the following plugins: 
 
@@ -111,11 +116,11 @@ Before using the Q-VAT you should install the following plugins:
 - [Prune_Skeleton_Ends.bsh](https://gist.github.com/lacan/0a12113b1497db86d7df3ef102efd34d#file-prune_skeleton_ends-bsh)
 Download and Unzip the Prune_Skeleton_Ends.bsh file and copy it into the FIji plugins folder (e.g. \fiji-win64\Fiji.app\plugins). Then,  restart ImageJ. 
 
-#  How to cite:
+##  **How to cite:**
 
 If using Q-VAT, please cite: (link paper)
 
 
-# References
+## **References**
 
 references to other plugins??
