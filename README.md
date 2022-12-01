@@ -104,11 +104,13 @@ To run Q-VAT you need to provide data directory and several input parameters in 
 
 ### **Output Parameters:**
 
-<img src="Images/output_file_organization_Q-VAT.PNG" width="200" align="right">
+<img src="Images/output_file_organization_Q-VAT.PNG" width="220" align="right">
 
 Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls) that contains the normalized morphological read-outs for each tile. a sub-directory (\masked_file) will be created inside the directory that contains the tiles with the segmented tissue mask. Inside this directory a sub-directory will be created for each channel (e.g. \masked_file\channel1). This folder contains the output figures for each tile (.tif), the tile-wise maps and their colorbars (.tif) (if you selected to save the output figures) and the Excell file with the morphological read-outs. 
  
- 
+<br/>
+<br/>
+<br/>
 
 ## **Requirements:**
 
