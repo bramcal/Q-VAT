@@ -39,7 +39,7 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 ### **Input Parameters:**
 
-- Input Directory: Input directory containing sub-directories for each sample.
+- Input Directory: Data directory containing sub-directories for each sample.
 - Pixel Calibration (µm/px): calibration of the pixels in the original image.
 - Radius of the biggest Object (µm): Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
 - Particle size lower range (µm²): Minimum area of particles that should be included in the tissue mask (Analyze particles).
@@ -81,29 +81,34 @@ Q-VAT requires a fixed order of the files (the exact naming is not important).Wh
 - [When analyzing two co-localized channels: Sub-directory with the segmented vasculature tiles of the second co-localized channel (.tif). ]
 - The **first sub-directory after the sub-directories with the segmented vasculature** should contain the tiles with the segmented tissue area (used for normalization). This will be the second sub-directory if only a single channel is analyzed.
 
-The tiles should be saved as filename_00X_00Y with X=Column number and Y=Row number(e.g. Image_Chan1_001_008.tif). 
+The tiles should be saved as filename_00X_00Y with X = Column number and Y = Row number(e.g. Image_Chan1_001_008.tif). 
 
 **Note**: Background pixel intensity values should be set to 0 (i.e. background in the tissue mask,  extravascular space in the segmented vascular mask). 
 
 
 ### **Input Parameters:**
 
-The user only needs to provide the correct data directory and several input parameters in the Graphical User Interface (GUI) 
+To run Q-VAT you need to provide data directory and several input parameters in the GUI and press OK. 
 
-- Input directory:
-- Pixel calibration (µm/px):
-- Vascular compartement separation threshold (µm):
-- Close label radius (µm):
-- Prune ends threshold (µm):
-- Save_Output_Figures (Yes/No):
-- Colocalization_channels (None, Channel2, Channel 2 &3): 
+- Input directory: Data directory containing sub-directories for each sample.
+- Pixel calibration (µm/px): Calibration of the pixels in the original image.
+- Vascular compartement separation threshold (µm): Threshold to split the vasculure in two compartements based on the mean branch diameter.
+- Close label radius (µm): Used to fill small holes in the vascular mask with a diameter below the Close label radius.
+- Prune ends threshold (µm): Used to prune endpoint branches with a length below the prune ends threshold. 
+- Save_Output_Figures (Yes/No): Allows the user to choose whether or not to save the output figures.
+- Colocalization_channels (None, Channel2, Channel 2 &3): Select how many co-localized channels your data set contains
 
 ### **Graphical User Interface:**
 
 <img src="Images/Q-VAT-GUI.png" width="600" align="center">
 
 ### **Output Parameters:**
-- Output....
+
+<img src="Images/output_file_organization_Q-VAT.PNG" width="200" align="right">
+
+Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls) that contains the normalized morphological read-outs for each tile. a sub-directory (\masked_file) will be created inside the directory that contains the tiles with the segmented tissue mask. Inside this directory a sub-directory will be created for each channel (e.g. \masked_file\channel1). This folder contains the output figures for each tile (.tif), the tile-wise maps and their colorbars (.tif) (if you selected to save the output figures) and the Excell file with the morphological read-outs. 
+ 
+ 
 
 ## **Requirements:**
 
