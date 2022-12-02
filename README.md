@@ -39,12 +39,12 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 ### **Input Parameters:**
 
-- Input Directory: Data directory containing sub-directories for each sample.
-- Pixel Calibration (µm/px): calibration of the pixels in the original image.
-- Radius of the biggest Object (µm): Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
-- Particle size lower range (µm²): Minimum area of particles that should be included in the tissue mask (Analyze particles).
-- Radius for median filtering (µm): Radius that is used for median filtering.
-- File extension: File extension of the original images.
+- **Input Directory:** Data directory containing sub-directories for each sample.
+- **Pixel Calibration (µm/px):** calibration of the pixels in the original image.
+- **Radius of the biggest Object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
+- **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask (Analyze particles).
+- **Radius for median filtering (µm): **Radius that is used for median filtering.
+- **File extension:** File extension of the original images.
 
 
 ### **Graphical User Interface:**
@@ -57,13 +57,13 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 The Q-VAT masking tool will automatically generate the following sub-directories/files within each sample folder:
 
-- 01_split_vascular_mask: Sub-directory that contains tiles with the segmented vasculature obtained by dividing the vascular mask into smaller tiles (.tif).
-- [02_co_localized_chan1:  Sub-directory that contains tiles with the segmented vasculature of the first co-localized channel (.tif). ]
-- [03_col_localized_chan2: Sub-directory that contains tiles with the segmented vasculature of the second co-localized channel (.tif).]
-- 04_Tissue_mask: Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif).
-- 05_dimensions.txt: text file with the tile dimensions used to generate the smaller tiles (.txt).
-- TissueMask: Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
-- VascularMask: Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
+- **01_split_vascular_mask:** Sub-directory that contains tiles with the segmented vasculature obtained by dividing the vascular mask into smaller tiles (.tif).
+- [**02_co_localized_chan1:**  Sub-directory that contains tiles with the segmented vasculature of the first co-localized channel (.tif). ]
+- [**03_col_localized_chan2:** Sub-directory that contains tiles with the segmented vasculature of the second co-localized channel (.tif).]
+- **04_Tissue_mask:** Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif).
+- **05_dimensions.txt:** text file with the tile dimensions used to generate the smaller tiles (.txt).
+- **TissueMask:** Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
+- **VascularMask:** Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
  
 
 ## **Q-VAT**
@@ -90,13 +90,13 @@ The tiles should be saved as filename_00X_00Y with X = Column number and Y = Row
 
 To run Q-VAT you need to provide data directory and several input parameters in the GUI and press OK. 
 
-- Input directory: Data directory containing sub-directories for each sample.
-- Pixel calibration (µm/px): Calibration of the pixels in the original image.
-- Vascular compartement separation threshold (µm): Threshold to split the vasculure in two compartements based on the mean branch diameter.
-- Close label radius (µm): Used to fill small holes in the vascular mask with a diameter below the Close label radius.
-- Prune ends threshold (µm): Used to prune endpoint branches with a length below the prune ends threshold. 
-- Save_Output_Figures (Yes/No): Allows the user to choose whether or not to save the output figures.
-- Colocalization_channels (None, Channel2, Channel 2 &3): Select how many co-localized channels your data set contains
+- **Input directory:** Data directory containing sub-directories for each sample.
+- **Pixel calibration (µm/px):** Calibration of the pixels in the original image.
+- **Vascular compartement separation threshold (µm): **Threshold to split the vasculure in two compartements based on the mean branch diameter.
+- **Close label radius (µm):** Used to fill small holes in the vascular mask with a diameter below the Close label radius.
+- **Prune ends threshold (µm):** Used to prune endpoint branches with a length below the prune ends threshold. 
+- **Save_Output_Figures (Yes/No):** Allows the user to choose whether or not to save the output figures.
+- **Colocalization_channels (None, Channel2, Channel 2 &3):** Select how many co-localized channels your data set contains
 
 ### **Graphical User Interface:**
 
