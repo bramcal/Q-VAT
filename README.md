@@ -43,7 +43,7 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 - **Pixel Calibration (µm/px):** calibration of the pixels in the original image.
 - **Radius of the biggest Object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
 - **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask (Analyze particles).
-- **Radius for median filtering (µm): **Radius that is used for median filtering.
+- **Radius for median filtering (µm):** Radius that is used for median filtering.
 - **File extension:** File extension of the original images.
 
 
@@ -92,7 +92,7 @@ To run Q-VAT you need to provide data directory and several input parameters in 
 
 - **Input directory:** Data directory containing sub-directories for each sample.
 - **Pixel calibration (µm/px):** Calibration of the pixels in the original image.
-- **Vascular compartement separation threshold (µm): **Threshold to split the vasculure in two compartements based on the mean branch diameter.
+- **Vascular compartement separation threshold (µm):** Threshold to split the vasculure in two compartements based on the mean branch diameter.
 - **Close label radius (µm):** Used to fill small holes in the vascular mask with a diameter below the Close label radius.
 - **Prune ends threshold (µm):** Used to prune endpoint branches with a length below the prune ends threshold. 
 - **Save_Output_Figures (Yes/No):** Allows the user to choose whether or not to save the output figures.
