@@ -246,22 +246,22 @@ if (fileList.length == ROIfileList.length) {
 					}
 					else{
 						selectWindow("Results");
-						diameter_chan1 = Table.getColumn("mean Diameter (µm)");
+						diameter_chan1 = Table.getColumn("Mean vessel diameter (µm)");
 						vasculardens_chan1 = Table.getColumn("Vascular density (%)");
-						vessellengthdens_chan1 = Table.getColumn("vessel length density (mm/mm²)");
+						vessellengthdens_chan1 = Table.getColumn("Vessel length density (mm/mm²)");
 						branchdens_chan1 = Table.getColumn("Branch density(#/mm²)");
 						clusterdens_chan1 = Table.getColumn("Cluster density (#/mm²)"); 
 						branchpointdens_chan1 = Table.getColumn("Branchpoint density (#/mm²)"); 
 						endpointdensdens_chan1 = Table.getColumn("Endpoint density (#/mm²)");
 						 
-						diameterabove_chan1 = Table.getColumn("Mean vessel diameter above Threshold (µm)"); 
-						vasculardensabove_chan1 = Table.getColumn("Vascular density above Threshold (%)");
-						vessellengthdensabove_chan1 = Table.getColumn("vessel length density above Threshold (mm/mm²)");
-						branchdensabove_chan1 = Table.getColumn("Branch density above Threshold (#/mm²)");
-						diameterbelow_chan1 = Table.getColumn("Mean vessel diameter below Threshold (µm)"); 
-						vasculardensbelow_chan1 = Table.getColumn("Vascular density below Threshold (%)");
-						vessellengthdensbelow_chan1 = Table.getColumn("vessel length density below Threshold (mm/mm²)");
-						branchdensbelow_chan1 = Table.getColumn("Branch density below Threshold (#/mm²)");						
+						diameterabove_chan1 = Table.getColumn("Mean vessel diameter above threshold (µm)"); 
+						vasculardensabove_chan1 = Table.getColumn("Vascular density above threshold (%)");
+						vessellengthdensabove_chan1 = Table.getColumn("Vessel length density above threshold (mm/mm²)");
+						branchdensabove_chan1 = Table.getColumn("Branch density above threshold (#/mm²)");
+						diameterbelow_chan1 = Table.getColumn("Mean vessel diameter below threshold (µm)"); 
+						vasculardensbelow_chan1 = Table.getColumn("Vascular density below threshold (%)");
+						vessellengthdensbelow_chan1 = Table.getColumn("Vessel length density below threshold (mm/mm²)");
+						branchdensbelow_chan1 = Table.getColumn("Branch density below threshold (#/mm²)");						
 						close("Results");
 						
 						vascular_density_chan1[i] = vasculardens_chan1[0];
@@ -295,22 +295,22 @@ if (fileList.length == ROIfileList.length) {
 							}
 							else{
 								selectWindow("Results");
-								diameter_chan2 = Table.getColumn("mean Diameter (µm)");
+								diameter_chan2 = Table.getColumn("Mean vessel diameter (µm)");
 								vasculardens_chan2 = Table.getColumn("Vascular density (%)");
-								vessellengthdens_chan2 = Table.getColumn("vessel length density (mm/mm²)");
+								vessellengthdens_chan2 = Table.getColumn("Vessel length density (mm/mm²)");
 								branchdens_chan2 = Table.getColumn("Branch density(#/mm²)");
 								clusterdens_chan2 = Table.getColumn("Cluster density (#/mm²)"); 
 								branchpointdens_chan2 = Table.getColumn("Branchpoint density (#/mm²)"); 
 								endpointdensdens_chan2 = Table.getColumn("Endpoint density (#/mm²)");
 								
-								diameterabove_chan2 = Table.getColumn("Mean vessel diameter above Threshold (µm)"); 
-								vasculardensabove_chan2 = Table.getColumn("Vascular density above Threshold (%)");
-								vessellengthdensabove_chan2 = Table.getColumn("vessel length density above Threshold (mm/mm²)");
-								branchdensabove_chan2 = Table.getColumn("Branch density above Threshold (#/mm²)");
-								diameterbelow_chan2 = Table.getColumn("Mean vessel diameter below Threshold (µm)"); 
-								vasculardensbelow_chan2 = Table.getColumn("Vascular density below Threshold (%)");
-								vessellengthdensbelow_chan2 = Table.getColumn("vessel length density below Threshold (mm/mm²)");
-								branchdensbelow_chan2 = Table.getColumn("Branch density below Threshold (#/mm²)");			
+								diameterabove_chan2 = Table.getColumn("Mean vessel diameter above threshold (µm)"); 
+								vasculardensabove_chan2 = Table.getColumn("Vascular density above threshold (%)");
+								vessellengthdensabove_chan2 = Table.getColumn("Vessel length density above threshold (mm/mm²)");
+								branchdensabove_chan2 = Table.getColumn("Branch density above threshold (#/mm²)");
+								diameterbelow_chan2 = Table.getColumn("Mean vessel diameter below threshold (µm)"); 
+								vasculardensbelow_chan2 = Table.getColumn("Vascular density below threshold (%)");
+								vessellengthdensbelow_chan2 = Table.getColumn("Vessel length density below threshold (mm/mm²)");
+								branchdensbelow_chan2 = Table.getColumn("Branch density below threshold (#/mm²)");			
 								close("Results");
 
 								vascular_density_chan2[i] = vasculardens_chan2[0];
@@ -391,22 +391,22 @@ if (fileList.length == ROIfileList.length) {
 							}
 							else{
 								selectWindow("Results");
-								diameter_chan3 = Table.getColumn("mean Diameter (µm)");
+								diameter_chan3 = Table.getColumn("Mean vessel diameter (µm)");
 								vasculardens_chan3 = Table.getColumn("Vascular density (%)");
-								vessellengthdens_chan3 = Table.getColumn("vessel length density (mm/mm²)");
+								vessellengthdens_chan3 = Table.getColumn("Vessel length density (mm/mm²)");
 								branchdens_chan3 = Table.getColumn("Branch density(#/mm²)");
 								clusterdens_chan3 = Table.getColumn("Cluster density (#/mm²)"); 
 								branchpointdens_chan3 = Table.getColumn("Branchpoint density (#/mm²)"); 
 								endpointdensdens_chan3 = Table.getColumn("Endpoint density (#/mm²)");
 								
-								diameterabove_chan3 = Table.getColumn("Mean vessel diameter above Threshold (µm)"); 
-								vasculardensabove_chan3 = Table.getColumn("Vascular density above Threshold (%)");
-								vessellengthdensabove_chan3 = Table.getColumn("vessel length density above Threshold (mm/mm²)");
-								branchdensabove_chan3 = Table.getColumn("Branch density above Threshold (#/mm²)");
-								diameterbelow_chan3 = Table.getColumn("Mean vessel diameter below Threshold (µm)"); 
-								vasculardensbelow_chan3 = Table.getColumn("Vascular density below Threshold (%)");
-								vessellengthdensbelow_chan3 = Table.getColumn("vessel length density below Threshold (mm/mm²)");
-								branchdensbelow_chan3 = Table.getColumn("Branch density below Threshold (#/mm²)");												
+								diameterabove_chan3 = Table.getColumn("Mean vessel diameter above treshold (µm)"); 
+								vasculardensabove_chan3 = Table.getColumn("Vascular density above threshold (%)");
+								vessellengthdensabove_chan3 = Table.getColumn("Vessel length density above threshold (mm/mm²)");
+								branchdensabove_chan3 = Table.getColumn("Branch density above threshold (#/mm²)");
+								diameterbelow_chan3 = Table.getColumn("Mean vessel diameter below threshold (µm)"); 
+								vasculardensbelow_chan3 = Table.getColumn("Vascular density below threshold (%)");
+								vessellengthdensbelow_chan3 = Table.getColumn("Vessel length density below threshold (mm/mm²)");
+								branchdensbelow_chan3 = Table.getColumn("Branch density below threshold (#/mm²)");												
 								close("Results");
 								
 								vascular_density_chan3[i] = vasculardens_chan3[0];
