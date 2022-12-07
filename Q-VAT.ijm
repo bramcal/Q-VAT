@@ -1053,10 +1053,10 @@ function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_a
 
 		//Total vascular metrics
 		Table.setColumn("Label", tilename);
-		Table.setColumn("mean Diameter (µm)", diameter);
+		Table.setColumn("Mean vessel diameter (µm)", diameter);
 		Table.setColumn("Vascular density (%)", density);
-		Table.setColumn("vessel length density (mm/mm²)", totallength);
-		Table.setColumn("Mean Branch length (µm)", branchlength);
+		Table.setColumn("Vessel length density (mm/mm²)", totallength);
+		Table.setColumn("Mean branch length (µm)", branchlength);
 		Table.setColumn("Branch density(#/mm²)", NumberOfBranches_norm);
 		Table.setColumn("Tortuosity index", Tortuosity);
 		Table.setColumn("Cluster density (#/mm²)", NumberOfClusters_norm);
@@ -1064,25 +1064,25 @@ function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_a
 		Table.setColumn("Endpoint density (#/mm²)", numEndpoints_norm);
 		
 		//vascular metrics above threshold
-		Table.setColumn("Mean vessel diameter above Threshold (µm)", DiameterAboveThreshold); 
-		Table.setColumn("Vascular density above Threshold (%)", densityAboveThreshold); 
-		Table.setColumn("vessel length density above Threshold (mm/mm²)", totallengthAboveThreshold); 
-		Table.setColumn("Mean Branch length above Threshold (µm)", branchlengthAboveThreshold); 
-		Table.setColumn("Branch density above Threshold (#/mm²)", BranchesAboveThreshold); 
-		Table.setColumn("Tortuosity index above Threshold", TortuosityAboveThreshold);
+		Table.setColumn("Mean vessel diameter above threshold (µm)", DiameterAboveThreshold); 
+		Table.setColumn("Vascular density above threshold (%)", densityAboveThreshold); 
+		Table.setColumn("Vessel length density above threshold (mm/mm²)", totallengthAboveThreshold); 
+		Table.setColumn("Mean branch length above threshold (µm)", branchlengthAboveThreshold); 
+		Table.setColumn("Branch density above threshold (#/mm²)", BranchesAboveThreshold); 
+		Table.setColumn("Tortuosity index above threshold", TortuosityAboveThreshold);
 
 		//vascular metrics Below threshold
-		Table.setColumn("Mean vessel diameter below Threshold (µm)", DiameterBelowThreshold); 
-		Table.setColumn("Vascular density below Threshold (%)", densityBelowThreshold); 
-		Table.setColumn("vessel length density below Threshold (mm/mm²)", totallengthBelowThreshold); 
-		Table.setColumn("Mean Branch length below Threshold (µm)", branchlengthBelowThreshold);
-		Table.setColumn("Branch density below Threshold (#/mm²)", BranchesBelowThreshold);
-		Table.setColumn("Tortuosity index below Threshold", TortuosityBelowThreshold);
+		Table.setColumn("Mean vessel diameter below threshold (µm)", DiameterBelowThreshold); 
+		Table.setColumn("Vascular density below threshold (%)", densityBelowThreshold); 
+		Table.setColumn("Vessel length density below threshold (mm/mm²)", totallengthBelowThreshold); 
+		Table.setColumn("Mean Branch length below threshold (µm)", branchlengthBelowThreshold);
+		Table.setColumn("Branch density below threshold (#/mm²)", BranchesBelowThreshold);
+		Table.setColumn("Tortuosity index below threshold", TortuosityBelowThreshold);
 	
 		filename = File.getParent(Dir); //get the name of the directory
 		name = File.getName(filename);
 		
-		run("Read and Write Excel", "file=["+ savedir + "//" + name + "vascular_density.xlsx], stack_results, sheet=Channel"); //save output in excell file in the folder of the ROI
+		run("Read and Write Excel", "file=["+ savedir + "//" + name + "_vascular_density.xlsx], stack_results, sheet=Channel"); //save output in excell file in the folder of the ROI
 	}
 }
 
