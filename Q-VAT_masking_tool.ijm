@@ -20,7 +20,7 @@
 
 #@ String (visibility=MESSAGE, value="<font size=20><b> Q-VAT masking tool </b></font>", required=false)msg
 #@ File (label="Select a directory", style="directory") inputDir1
-#@ Float (label="Calibration (µm/px)", min=0, value=0.32175, persist=false, style="format:#.######") calibration
+#@ Float (label="Pixel calibration (µm/px)", min=0, value=0.32175, persist=false, style="format:#.######") calibration
 #@ Float (label="Radius of biggest object (µm)", min=0, value=16, persist=false, style="format:###") Biggest_feature_radius
 #@ Float (label="Particle size lower range (µm^2)", min=0, value=10000, persist=false, style="format:#.######") particle_size_lower_range_um
 #@ Float (label="Radius for median filtering (µm)", min=0, value=50, persist=false, style="format:#.######") median_filt_radius
