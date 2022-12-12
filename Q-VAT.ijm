@@ -24,10 +24,10 @@
 #@ File (label="Select a directory", style="directory") inputDir1
 #@ Float (label="Calibration (µm/px)", min=0, value= 0.642776, persist=false, style="format:#.######") calibration
 #@ Float (label="<html> Vascular compartement <br/> separation threshold (µm) <html>", min=0, value=10, persist=false, style="format:#.######") ThresholdDiameter
-#@ Float (label="close labels radius (µm)", min=0, value=3, persist=false, style="format:#.######") FillHolesThreshold
+#@ Float (label="Close labels radius (µm)", min=0, value=3, persist=false, style="format:#.######") FillHolesThreshold
 #@ Float (label="Prune ends threshold (µm)", min=0, value=5, persist=false, style="format:#.######") PruneEndsThreshold
 #@ String (choices={"Yes", "No"}, style="radioButtonHorizontal") Save_Output_Figures
-#@ String (visibility=MESSAGE, value="<font size=5> Inculde additional channels with co-localized staining: </font>", required=false) msg2
+#@ String (visibility=MESSAGE, value="<font size=5> Include additional channels with co-localized staining: </font>", required=false) msg2
 #@ String (choices={"None","Channel 2", "Channel 2 & 3"}, style="listbox") colocalization_channels
 
 
