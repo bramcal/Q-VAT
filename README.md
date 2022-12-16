@@ -8,10 +8,10 @@ We have included a pre-processing pipeline, the Q-VAT masking tool, that can be 
 
 ## **Overview:**
 
-- Download Fiji & Install required Plugins
-- Organize your files in to the correct file organisation
-- run the Q-VAT masking tool
-- run Q-VAT
+1) Download Fiji & Install required Plugins
+2) Organize your files in to the correct file organisation
+3) run the Q-VAT masking tool
+4) run Q-VAT
 
 
 ## **Requirements:**
