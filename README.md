@@ -7,6 +7,18 @@ Q-VAT is an ImageJ macro to perform automated quantification of the vasculature 
 We have included a pre-processing pipeline, the Q-VAT masking tool, that can be used to generate tiled, segmented 2D images from immuno-stained images of large samples. 
 
 
+## **Requirements:**
+
+Before using the Q-VAT you should install the following plugins: 
+
+- FIJI is Just ImageJ. Download instructions: https://imagej.net/Fiji/Downloads
+- BioVoxxel Toolbox. Installation: https://imagej.net/plugins/biovoxxel-toolbox
+- Read and Write Excell. Installation: https://imagej.net/plugins/read-and-write-excel
+- 3D ImageJ Suite. Installation: https://imagej.net/plugins/3d-imagej-suite/
+- [Prune_Skeleton_Ends.bsh](https://gist.github.com/lacan/0a12113b1497db86d7df3ef102efd34d#file-prune_skeleton_ends-bsh)
+Download and Unzip the Prune_Skeleton_Ends.bsh file and copy it into the FIji plugins folder (e.g. \fiji-win64\Fiji.app\plugins). Then,  restart ImageJ. 
+
+
 ## **Pre-processing: Q-VAT masking Tool**
 
 The Q-VAT masking Tool uses a succession of several ImageJ commands to automatically create a vascular mask and tissue mask from stitched immuno-stained images. The generation of these masks consist of two parts First, the input image is used to create a Tissue mask. Next, the input images and the Tissue mask are used to create a vascular mask containing only the vasculature. Both masks are saved as whole images and as separate tiles that can be analyzed using the Q-VAT tool. 
@@ -112,16 +124,6 @@ Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls
 <br/>
 <br/>
 
-## **Requirements:**
-
-Before using the Q-VAT you should install the following plugins: 
-
-- FIJI is Just ImageJ. Download instructions: https://imagej.net/Fiji/Downloads
-- BioVoxxel Toolbox. Installation: https://imagej.net/plugins/biovoxxel-toolbox
-- Read and Write Excell. Installation: https://imagej.net/plugins/read-and-write-excel
-- 3D ImageJ Suite. Installation: https://imagej.net/plugins/3d-imagej-suite/
-- [Prune_Skeleton_Ends.bsh](https://gist.github.com/lacan/0a12113b1497db86d7df3ef102efd34d#file-prune_skeleton_ends-bsh)
-Download and Unzip the Prune_Skeleton_Ends.bsh file and copy it into the FIji plugins folder (e.g. \fiji-win64\Fiji.app\plugins). Then,  restart ImageJ. 
 
 ##  **How to cite:**
 
