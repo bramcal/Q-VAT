@@ -6,6 +6,13 @@ Q-VAT is an ImageJ macro to perform automated quantification of the vasculature 
 
 We have included a pre-processing pipeline, the Q-VAT masking tool, that can be used to generate tiled, segmented 2D images from immuno-stained images of large samples. 
 
+## **Overview:**
+
+- Download Fiji & Install required Plugins
+- Organize your files in to the correct file organisation
+- run the Q-VAT masking tool
+- run Q-VAT
+
 
 ## **Requirements:**
 
