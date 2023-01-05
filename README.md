@@ -136,7 +136,3 @@ Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls
 
 If using Q-VAT, please cite: (link paper)
 
-
-## **References**
-
-references to other plugins??
