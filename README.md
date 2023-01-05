@@ -131,6 +131,9 @@ Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls
 <br/>
 <br/>
 
+##  **Sample data:**
+
+Sample data can be downloaded from: https://doi.org/10.6084/m9.figshare.21820515.
 
 ##  **How to cite:**
 
