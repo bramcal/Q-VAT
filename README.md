@@ -63,7 +63,7 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 - **Radius of the biggest object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
 - **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask (Analyze particles).
 - **Radius for median filtering (µm):** Radius that is used for median filtering.
-- **File extension:** File extension of the original images.
+- **File extension:** File extension of the original images (".tif", ".tiff", ".png", ".jpg").
 
 
 ### **Graphical User Interface:**
