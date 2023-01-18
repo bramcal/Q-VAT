@@ -41,11 +41,11 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
 
 - Dimension file (.txt): **The first file in the folder** should be a .txt file that contain (you can assure that this is always the first file by adding "00_" in front of the filename). 
 
-   - Width of the tiles you want to analyse (px).
-   - Height of the tiles in pixels you want to analyse (px).
-   - Percentage overlap that has been used to acquire the tiles (%).
+   - Width of tiles (px).
+   - Height of tiles (px).
+   - Percentage overlap that has been used to acquire the individual tiles (%).
 
-        This is important if you want to split the original image into the original acquisition tiles removing the overlapping parts (Q-VAT masking tool assumes Down&Ritght stitching). Use 0 if no overlap was used or if you want to split the original images in tiles with a fixed size.
+        This is important if you want to split the original image into the original acquisition tiles removing the overlapping parts (Q-VAT masking tool assumes Down&Ritght stitching). Use 0 if no overlap was used or if you want to split the original images in tiles with a fixed size (i.e. width x height).
         
         Example: 00_dimensions.txt
     
