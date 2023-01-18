@@ -762,10 +762,29 @@ function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_a
 		run("Duplicate...", " ");
 		selectWindow("Masked_IMG");				
 		run("Skeletonize (2D/3D)");
-		run("Prune Skeleton Ends", "threshold=" + prune_threshold); //prune ends in the skeletonized image
+		run("Prune Skeleton Ends", "threshold=" + prune_threshold); //prune ends in the skeletonized image		
 		close("Masked_IMG");
-		selectWindow("Masked_IMG-pruned");
-		rename("Masked_IMG"); 
+		selectWindow("Masked_IMG-pruned");		
+		//SAVE output figures - skeleton							
+		if (Save_Output_Figures == "Yes") {
+			if (chanDir == "None"){
+				selectWindow("Masked_IMG-pruned");	
+				saveAs("Tiff", savedir + "//" + "output_Skeleton" + Chan1List);
+				selectWindow("output_Skeleton" + Chan1List);
+			}
+			else{
+				selectWindow("Masked_IMG-pruned");	
+				saveAs("Tiff", savedir + "//" + "output_Skeleton" + ChanList);
+				selectWindow("output_Skeleton" + ChanList);
+			}
+			rename("Masked_IMG"); 
+			selectWindow("Masked_IMG");
+		}
+	
+		if (Save_Output_Figures == "No") {
+			rename("Masked_IMG"); 
+		}
+		
 		run("Divide...", "value=255.000"); // create skeleton with values of 1 and background 0 (instead of 255 and 0)
 		selectWindow("Masked_IMG-1"); 
 		run("Local Thickness (complete process)", "threshold=255");
