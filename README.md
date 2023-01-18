@@ -53,7 +53,7 @@ The Q-VAT masking tool requires a fixed file organisation. The Q-VAT maksing too
            2044
            7
 
-Q-VAT uses the AnalyzeSkeleton plugin to extract morphological read-outs from the vasculature. Therefore, it is able to process maximum 2^31 - 1 vascular clusters in a single tile (limited by jave Interger.MAX_VALUE). By default ImageJ only allocates a limited amount of memory. When Analysing large images you can increase this amount (max 75% of your RAM) by chaning the maximum memory in Edit > Options > Memory&threads. 
+Q-VAT uses the AnalyzeSkeleton plugin to extract morphological read-outs from the vasculature. Therefore, it is able to process maximum 2^31-1 vascular clusters in a single tile (limited by jave Interger.MAX_VALUE). By default ImageJ only allocates a limited amount of memory. When Analysing large images you can increase this amount (max 75% of your RAM) by chaning the maximum memory in Edit > Options > Memory&threads. 
 
 
 - Single channel stitched High resolution (immuno-stained) images. One image if you want to analyse only a single channel. Two or three images if you want to analyse one or two co-localized channels. The main channels should always be the first image file in the folder (e.g. image_Chan1.tif, image_Chan2.tif, image_Chan3.tif). 
