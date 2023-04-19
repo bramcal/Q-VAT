@@ -69,7 +69,7 @@ Q-VAT uses the AnalyzeSkeleton plugin to extract morphological read-outs from th
 - **Remove small particles (µm²):** Minimum area of vessel that are included in the vascular mask. 
 - **Threholding method:** Dropdown menu that allows the user to select the thresholding method for the vascular mask ("Default", "Huang", "Otsu"). 
 - **File extension:** File extension of the original images (".tif", ".tiff", ".png", ".jpg").
-- **Save validation image:** llows the user to choose whether or not to save the validation image. 
+- **Save validation image:** Allows the user to choose whether or not to save the validation image. 
 
 
 ### **Graphical User Interface:**
