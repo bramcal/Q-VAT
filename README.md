@@ -64,9 +64,12 @@ Q-VAT uses the AnalyzeSkeleton plugin to extract morphological read-outs from th
 - **Input Directory:** Data directory containing sub-directories for each sample.
 - **Pixel Calibration (µm/px):** calibration of the pixels in the original image.
 - **Radius of the biggest object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
-- **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask (Analyze particles).
+- **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask.
 - **Radius for median filtering (µm):** Radius that is used for median filtering.
+- **Remove small particles (µm²):** Minimum area of vessel that are included in the vascular mask. 
+- **Threholding method:** Dropdown menu that allows the user to select the thresholding method for the vascular mask ("Default", "Huang", "Otsu"). 
 - **File extension:** File extension of the original images (".tif", ".tiff", ".png", ".jpg").
+- **Save validation image:** llows the user to choose whether or not to save the validation image. 
 
 
 ### **Graphical User Interface:**
@@ -85,7 +88,7 @@ The Q-VAT masking tool will automatically generate the following sub-directories
 - **04_Tissue_mask:** Sub-directory that contains the segmented tissue mask obtained by dividing the tissue mask into tiles (.tif).
 - **05_dimensions.txt:** text file with the tile dimensions used to generate the smaller tiles (.txt).
 - **TissueMask:** Sub-directory that contains the Tissue mask as a whole image with the same dimensions as the original image.
-- **VascularMask:** Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image.
+- **VascularMask:** Sub-directory that contains the segmented vascular mask as a whole image with the same dimensions as the original image. If the user opted to save the validation image, it will be saved in this sub-directory
  
 
 ## **Q-VAT**
