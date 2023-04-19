@@ -121,7 +121,7 @@ To run Q-VAT you need to provide data directory and several input parameters in 
 - **Close label radius (µm):** Used to fill small holes in the vascular mask with a diameter below the Close label radius.
 - **Prune ends threshold (µm):** Used to prune endpoint branches with a length below the prune ends threshold. 
 - **Save_Output_Figures (Yes/No):** Allows the user to choose whether or not to save the output figures.
-- **Colocalization_channels (None, Channel2, Channel 2 &3):** Select how many co-localized channels your data set contains
+- **Costaining_channels (None, Channel2, Channel 2 &3):** Select how many co-stained channels your data set contains.
 
 ### **Graphical User Interface:**
 
