@@ -144,6 +144,10 @@ If you selected to save the output figures:
 <br/>
 <br/>
 <br/>
+##  **Selection Input parameters:**
+
+The obtained moprhological read-outs are dependent on the input parameters, and thus careful consideration of various input parameters is crucial. The selection of input parameters must take into account the tissue type under investigation and the vascular network structure. It is advised not to increase the close label radius and prune ends threshold beyond the diameter of the target blood vessels.
+
 
 ##  **Sample data:**
 
