@@ -63,7 +63,7 @@ Q-VAT uses the AnalyzeSkeleton plugin to extract morphological read-outs from th
 
 - **Input Directory:** Data directory containing sub-directories for each sample.
 - **Pixel Calibration (µm/px):** calibration of the pixels in the original image.
-- **Radius of the biggest object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction)
+- **Radius of the biggest object (µm):** Estimate of the radius of the biggest object in the original image (used as biggest feauture diameter for the rolling ball method in during the Convoluted backgroud substraction).
 - **Particle size lower range (µm²):** Minimum area of particles that should be included in the tissue mask.
 - **Radius for median filtering (µm):** Radius that is used for median filtering.
 - **Remove small particles (µm²):** Minimum area of vessel that are included in the vascular mask. 
@@ -133,7 +133,7 @@ To run Q-VAT you need to provide data directory and several input parameters in 
 
 Q-VAT will automaticallly generate and Excel file (filename_vascular_density.xls) that contains the normalized morphological read-outs for each tile. A sub-directory (\masked_file) will be created inside the directory that contains the tiles with the segmented tissue mask. Inside this directory a sub-directory will be created for each channel (e.g. \masked_file\channel1). This folder contains the output figures for each tile: 
 
-- Excell file with the morphological read-outs for each channel
+- Excell file with the morphological read-outs for each channel.
 
 If you selected to save the output figures:
 
