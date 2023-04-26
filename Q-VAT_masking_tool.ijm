@@ -20,11 +20,15 @@
 
 #@ String (visibility=MESSAGE, value="<font size=20><b> Q-VAT masking tool </b></font>", required=false)msg
 #@ File (label="Select a directory", style="directory") inputDir1
-#@ Float (label="Pixel calibration (µm/px)", min=0, value=0.32175, persist=false, style="format:#.######") calibration
+#@ Float (label="Calibration (µm/px)", min=0, value=0.642776, persist=false, style="format:#.######") calibration
 #@ Float (label="Radius of biggest object (µm)", min=0, value=16, persist=false, style="format:###") Biggest_feature_radius
 #@ Float (label="Particle size lower range (µm^2)", min=0, value=10000, persist=false, style="format:#.######") particle_size_lower_range_um
-#@ Float (label="Radius for median filtering (µm)", min=0, value=50, persist=false, style="format:#.######") median_filt_radius
+#@ Float (label="Radius for median filtering (µm)", min=0, value=15, persist=false, style="format:#.######") median_filt_radius
+#@ Float (label="Remove small particles (µm^2)", min=0, value=10, persist=false, style="format:#.######") remove_small_particles
+#@ String (choices={"Default","Huang", "Otsu"}, style="listbox") Thresholding_method
 #@ String (choices={".tif", ".tiff", ".png", ".jpg"}, style="listBox") file_extension
+#@ String (choices={"Yes", "No"}, style="radioButtonHorizontal") save_validation_image
+
 
 
 setBatchMode(true );
@@ -117,7 +121,7 @@ for (k=0; k<subFolderList.length;k++){
 			
 			run("Properties...", "channels=1 slices=1 frames=1 unit=pixels pixel_width=1 pixel_height=1 voxel_depth=1"); //set unit to 1 pixel 
 			rename("IMG");
-			run("8-bit"); //convert to 8bit (needed for analyze particles)
+			//run("8-bit"); //convert to 8bit (needed for analyze particles)
 			run("Duplicate...", "duplicate"); // duplicate image, to keep the raw image
 			selectWindow("IMG-1"); 
 			//remove noise from the images using despeckle: 
@@ -126,12 +130,13 @@ for (k=0; k<subFolderList.length;k++){
 			run("Smooth");
 			// Background substraction: 
 			run("Convoluted Background Subtraction", "convolution=Gaussian radius=" + Biggest_feature_radius/calibration); // convoluted background subtraction
-			//run("Convoluted Background Subtraction", "convolution=Gaussian radius=" + 16/0.642776); // convoluted background subtraction
+			//run("Convoluted Background Subtraction", "convolution=Gaussian radius=" + 16/14.43); // convoluted background subtraction
 		
 			
 			if (i==1){
 			/// CREATE Tissue MASK and multiply to remove background signal ///
 				selectWindow("IMG");
+				run("8-bit"); //convert to 8bit (needed for analyze particles)
 				run("Enhance Contrast...", "saturated=60"); //enhance the contrast of the image
 				run("Apply LUT"); //apply the LUT (after saturation)
 				run("Smooth");
@@ -315,12 +320,20 @@ for (k=0; k<subFolderList.length;k++){
 			close("IMG"); 
 			selectWindow("IMG-1");
 			
-			// Auto Threhsold: 
-			setAutoThreshold("Huang dark");
+			// Auto Threhsold: 	(Default, Huang or Otsu)
+			setAutoThreshold(Thresholding_method  + " dark");
 			run("Threshold...");
 			call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
 			close("Threshold");	
-			run("Convert to Mask");			
+			run("Convert to Mask");		
+			
+			
+			run("Analyze Particles...", "size="  + remove_small_particles/(calibration*calibration) + "-Infinity show=Masks clear");
+			close("IMG-1");
+			selectWindow("Mask of IMG-1");
+			rename("IMG-1");		
+			
+	
 			
 			File.makeDirectory(inputDir + subdir + "\\" + outputname); //make a subdirectory in the ROI folder
 			 for (x = 0; x < numCol; x++) { 
@@ -383,7 +396,37 @@ for (k=0; k<subFolderList.length;k++){
 			saveAs("Tiff",inputDir + subdir + "\\" + "vascularMASK" + "\\" + title + "vascularMASK_chan" + i + ".tif");
 			close("IMG-1");
 			
+			if (save_validation_image == "Yes") {
+			
+				open( inputDir + subdir +  subdirList[i] ); //open stitched images
+				rename("IMG");
+				
+				open( inputDir + subdir + "\\" + "TissueMASK" + "\\" + title + "TissueMASK.tif" ); //open tissue mask
+				rename("tissueMask");
+				run("Divide...", "value=255");
+				
+				imageCalculator("Multiply", "IMG", "tissueMask");
+				run("Enhance Contrast", "saturated=0.35");
+				run("RGB Color");
+				close("tissueMask"); 
+				
+				selectWindow(title + "vascularMASK_chan" + i + ".tif");
+				run("Invert LUT");
+				getLut(reds, greens, blues);
+				reds[255]=0;
+				greens[255]=0;
+				blues[255]=255;
+				setLut(reds, greens, blues); //red[255]=0, green[255]=0, blue[255]=255
+				
+				imageCalculator("Add", "IMG",title + "vascularMASK_chan" + i + ".tif");
+				selectWindow("IMG");
+				saveAs("Tiff",inputDir + subdir + "\\" + "vascularMASK" + "\\" + title + "vascularMASK_chan" + i + "_validation_image.tif");
+				close(title + "vascularMASK_chan" + i + "_validation_image.tif");
+			}
+			//
+			
 			close(title + "vascularMASK_chan" + i + ".tif");
+			
 		}
 	}
 }

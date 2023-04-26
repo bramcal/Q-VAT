@@ -27,8 +27,8 @@
 #@ Float (label="Close labels radius (µm)", min=0, value=3, persist=false, style="format:#.######") FillHolesThreshold
 #@ Float (label="Prune ends threshold (µm)", min=0, value=5, persist=false, style="format:#.######") PruneEndsThreshold
 #@ String (choices={"Yes", "No"}, style="radioButtonHorizontal") Save_Output_Figures
-#@ String (visibility=MESSAGE, value="<font size=5> Include additional channels with co-localized staining: </font>", required=false) msg2
-#@ String (choices={"None","Channel 2", "Channel 2 & 3"}, style="listbox") colocalization_channels
+#@ String (visibility=MESSAGE, value="<font size=5> Include additional channels with co-staining: </font>", required=false) msg2
+#@ String (choices={"None","Channel 2", "Channel 2 & 3"}, style="listbox") costaining_channels
 
 
 setBatchMode( true );
@@ -52,12 +52,12 @@ for (k=0; k<subFolderList.length;k++){
 	fileList = getFileList(srcDir); // filelist of all vascular mask tiles
 	
 
-	if (colocalization_channels == "None") {
+	if (costaining_channels == "None") {
 		//second folder in the sub-directory contains binary tissue masks
 		ROIsrcDir = inputDir+subdir+subdirList[1];
 		filenumber = newArray(fileList.length); //get the number of files in the folder (i.e. number of tiles)
 	}
-	if (colocalization_channels == "Channel 2") {
+	if (costaining_channels == "Channel 2") {
 		//second folder in the sub-directory contains the second channel of the staining
 		srcDir_two = inputDir+subdir+subdirList[1];
 		fileList_channel2 = getFileList(srcDir_two); 
@@ -65,7 +65,7 @@ for (k=0; k<subFolderList.length;k++){
 		ROIsrcDir = inputDir+subdir+subdirList[2];		
 	}
 	
-	if (colocalization_channels == "Channel 2 & 3") {
+	if (costaining_channels == "Channel 2 & 3") {
 		//second folder in the sub-directory contains the second channel of the staining
 		srcDir_two = inputDir+subdir+subdirList[1];
 		fileList_channel2 = getFileList(srcDir_two); 
@@ -94,7 +94,7 @@ for (k=0; k<subFolderList.length;k++){
 	vessellength_dens_below_chan1 =  newArray(fileList.length);
 	branch_dens_below_chan1 =  newArray(fileList.length);
 	
-	if (colocalization_channels == "Channel 2" || colocalization_channels == "Channel 2 & 3"){
+	if (costaining_channels == "Channel 2" || costaining_channels == "Channel 2 & 3"){
 		//Create empty arrays for ouptut maps (each channel)
 		vascular_density_chan2 = newArray(fileList.length);
 		mean_Diameter_chan2 = newArray(fileList.length);
@@ -115,7 +115,7 @@ for (k=0; k<subFolderList.length;k++){
 		
 	}
 	
-	if (colocalization_channels == "Channel 2 & 3") {
+	if (costaining_channels == "Channel 2 & 3") {
 		//Create empty arrays for ouptut maps (each channel)
 		vascular_density_chan3 = newArray(fileList.length);
 		mean_Diameter_chan3 = newArray(fileList.length);
@@ -172,10 +172,10 @@ for (k=0; k<subFolderList.length;k++){
 	File.makeDirectory(ROIsrcDir + "masked_file"); //make a subdirectory in the MASK folder
 	File.makeDirectory(outputDir1); //make a subdirectory in the MASK folder
 		
-	if (colocalization_channels == "Channel 2") {
+	if (costaining_channels == "Channel 2") {
 			File.makeDirectory(outputDir2); //make a subdirectory in the MASK folder
 	}
-	if (colocalization_channels == "Channel 2 & 3") {
+	if (costaining_channels == "Channel 2 & 3") {
 			File.makeDirectory(outputDir2); //make a subdirectory in the MASK folder
 			File.makeDirectory(outputDir3); //make a subdirectory in the MASK folder
 	}
@@ -284,7 +284,7 @@ if (fileList.length == ROIfileList.length) {
 					}			
 												
 						
-					if (colocalization_channels == "Channel 2" || colocalization_channels == "Channel 2 & 3") {						
+					if (costaining_channels == "Channel 2" || costaining_channels == "Channel 2 & 3") {						
 						if (fileList.length == fileList_channel2.length){
 							Analyze_Tile(srcDir, fileList[i], srcDir_two, fileList_channel2[i],outputDir2, masked_voxel_area, Threshold_Fillholes, Save_Output_Figures,prune_threshold,calibration, voxel_size);
 							
@@ -381,7 +381,7 @@ if (fileList.length == ROIfileList.length) {
 							}
 						}
 					}
-					if (colocalization_channels == "Channel 2 & 3") {							
+					if (costaining_channels == "Channel 2 & 3") {							
 							Analyze_Tile(srcDir, fileList[i], srcDir_three, fileList_channel3[i], outputDir3, masked_voxel_area, Threshold_Fillholes, Save_Output_Figures,prune_threshold,calibration, voxel_size );		 
 							
 							selectWindow("Results"); // there is no results table if output figure is empty! 
@@ -576,7 +576,7 @@ if (fileList.length == ROIfileList.length) {
 							makefigure(branch_dens_below_chan1, "branch_dens_below_chan1", 0, 2000, "physics", outputDir1,Columnnumber, Rownumber);
 																				
 
-							if(colocalization_channels == "Channel 2" || colocalization_channels == "Channel 2 & 3") {
+							if(costaining_channels == "Channel 2" || costaining_channels == "Channel 2 & 3") {
 														
 							makefigure(vascular_density_chan2,"vascular_density_chan2", 0, 35, "physics", outputDir2,Columnnumber, Rownumber);	
 							makefigure(mean_Diameter_chan2, "mean_Diameter_chan2", 0, 30, "physics", outputDir2,Columnnumber, Rownumber);
@@ -596,7 +596,7 @@ if (fileList.length == ROIfileList.length) {
 							makefigure(branch_dens_below_chan2, "branch_dens_below_chan2", 0, 2000, "physics", outputDir2,Columnnumber, Rownumber);
 							}
 							
-							if(colocalization_channels == "Channel 2 & 3") {
+							if(costaining_channels == "Channel 2 & 3") {
 												
 							makefigure(vascular_density_chan3,"vascular_density_chan3", 0, 35, "physics", outputDir3,Columnnumber, Rownumber);	
 							makefigure(mean_Diameter_chan3, "mean_Diameter_chan3", 0, 30, "physics", outputDir3,Columnnumber, Rownumber);
