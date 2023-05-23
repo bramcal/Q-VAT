@@ -13,9 +13,9 @@
  * Contact: bram.callewaert@kuleuven.be
  * 
  * Copyright 2022 Bram Callewaert, Leuven Univeristy, Departement of Cardiovascular Sciences, Center for Molecular and Vascular Biology (CMVB)
- * This script is is licensed under the GNU general Pubic License v3.0? 
+ * This script is is licensed under the Creative Commons Attribution 4.0 International License
  * 
- * if using Q-VAT Masking Tool please cite: link to paper
+ * if using Q-VAT Masking Tool please cite: https://doi.org/10.3389/fcvm.2023.1147462
  */
 
 #@ String (visibility=MESSAGE, value="<font size=20><b> Q-VAT masking tool </b></font>", required=false)msg
