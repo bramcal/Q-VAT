@@ -156,5 +156,4 @@ Sample data can be downloaded from: https://doi.org/10.6084/m9.figshare.21820515
 
 ##  **How to cite:**
 
-If using Q-VAT, please cite: (link paper)
-
+If using Q-VAT, please cite: https://doi.org/10.3389/fcvm.2023.1147462. 
