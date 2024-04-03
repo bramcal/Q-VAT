@@ -32,7 +32,7 @@
 
 
 setBatchMode(true );
-inputDir = inputDir1 + '\\';
+inputDir = inputDir1 + File.separator;
 subFolderList = getFileList(inputDir);
 			
 //loop over all the folders (i.e. subjects) within the selected input directory
@@ -41,52 +41,52 @@ for (k=0; k<subFolderList.length;k++){
 	//get a list of all folders in the sub-directory (i.e. subjects)
 	subdir= subFolderList[k]; 
 	subdirList = getFileList(inputDir + subdir); //files in the folder of each subject
-	if (File.exists(inputDir + subdir +  "vascularMASK" + "\\")){
-		list = getFileList(inputDir + subdir +  "vascularMASK" + "\\");
+	if (File.exists(inputDir + subdir +  "vascularMASK" + File.separator)){
+		list = getFileList(inputDir + subdir +  "vascularMASK" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "vascularMASK"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "vascularMASK"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "vascularMASK" + "\\");
+		ok=File.delete(inputDir + subdir +  "vascularMASK" + File.separator);
 	}
 	
-	if (File.exists(inputDir + subdir +  "TissueMASK" + "\\")){
-		list = getFileList(inputDir + subdir +  "TissueMASK" + "\\");
+	if (File.exists(inputDir + subdir +  "TissueMASK" + File.separator)){
+		list = getFileList(inputDir + subdir +  "TissueMASK" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "TissueMASK"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "TissueMASK"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "TissueMASK" + "\\");
+		ok=File.delete(inputDir + subdir +  "TissueMASK" + File.separator);
 	}
 	
-	if (File.exists(inputDir + subdir +  "04_Tissue_mask" + "\\")){
-		list = getFileList(inputDir + subdir +  "04_Tissue_mask" + "\\");
+	if (File.exists(inputDir + subdir +  "04_Tissue_mask" + File.separator)){
+		list = getFileList(inputDir + subdir +  "04_Tissue_mask" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "04_Tissue_mask"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "04_Tissue_mask"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "04_Tissue_mask" + "\\");
+		ok=File.delete(inputDir + subdir +  "04_Tissue_mask" + File.separator);
 	}
 	
-	if (File.exists(inputDir + subdir +  "01_split_vascular_mask" + "\\")){
-		list = getFileList(inputDir + subdir +  "01_split_vascular_mask" + "\\");
+	if (File.exists(inputDir + subdir +  "01_split_vascular_mask" + File.separator)){
+		list = getFileList(inputDir + subdir +  "01_split_vascular_mask" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "01_split_vascular_mask"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "01_split_vascular_mask"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "01_split_vascular_mask" + "\\");
+		ok=File.delete(inputDir + subdir +  "01_split_vascular_mask" + File.separator);
 	}
 
-	if (File.exists(inputDir + subdir +  "02_co_localized_chan1" + "\\")){
-		list = getFileList(inputDir + subdir +  "02_co_localized_chan1" + "\\");
+	if (File.exists(inputDir + subdir +  "02_co_localized_chan1" + File.separator)){
+		list = getFileList(inputDir + subdir +  "02_co_localized_chan1" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "02_co_localized_chan1"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "02_co_localized_chan1"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "02_co_localized_chan1" + "\\");
+		ok=File.delete(inputDir + subdir +  "02_co_localized_chan1" + File.separator);
 	}
 	
-	if (File.exists(inputDir + subdir +  "03_co_localized_chan2" + "\\")){
-		list = getFileList(inputDir + subdir +  "03_co_localized_chan2" + "\\");
+	if (File.exists(inputDir + subdir +  "03_co_localized_chan2" + File.separator)){
+		list = getFileList(inputDir + subdir +  "03_co_localized_chan2" + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(inputDir + subdir +  "03_co_localized_chan2"+ "\\" + list[j]);
+			ok=File.delete(inputDir + subdir +  "03_co_localized_chan2"+ File.separator + list[j]);
 		}
-		ok=File.delete(inputDir + subdir +  "03_co_localized_chan2" + "\\");
+		ok=File.delete(inputDir + subdir +  "03_co_localized_chan2" + File.separator);
 	}
 
 	for ( i = 0; i < subdirList.length; i++ ) {
@@ -236,7 +236,7 @@ for (k=0; k<subFolderList.length;k++){
 								
 				title = replace(subdirList[i], file_extension, "");  //remove the ".tif extension"
 	
-				File.makeDirectory(inputDir + subdir + "\\" + "04_Tissue_mask"); //make a subdirectory in the ROI folder
+				File.makeDirectory(inputDir + subdir + File.separator + "04_Tissue_mask"); //make a subdirectory in the ROI folder
 				getLocationAndSize(locX, locY, sizeW, sizeH); 
 				width = getWidth(); //width of the stitched image
 				height = getHeight(); //height of the stitched image
@@ -299,19 +299,19 @@ for (k=0; k<subFolderList.length;k++){
 	 					makeRectangle(offsetX, offsetY, tileWidthoverlap, tileHeightoverlap); 
 	 					}
 	 					run("Crop"); 
-	 					saveAs("Tiff",inputDir + subdir + "\\" + "04_Tissue_mask" + "\\"  + tileTitle);
+	 					saveAs("Tiff",inputDir + subdir + File.separator + "04_Tissue_mask" + File.separator  + tileTitle);
 	 					close(tileTitle + ".tif");					
 					 }
 				}
 					
-				File.makeDirectory(inputDir + subdir + "\\" + "TissueMASK"); //make a subdirectory in the ROI folder
+				File.makeDirectory(inputDir + subdir + File.separator + "TissueMASK"); //make a subdirectory in the ROI folder
 				//save output mask 
-				saveAs("Tiff",inputDir + subdir + "\\" + "TissueMASK" + "\\" + title + "TissueMASK.tif");
+				saveAs("Tiff",inputDir + subdir + File.separator + "TissueMASK" + File.separator + title + "TissueMASK.tif");
 			}
 			
 			if (i==2 || i==3){
 				tissuetitle = replace(subdirList[1], file_extension, "");  //remove the ".tif extension"
-				open( inputDir + subdir + "\\" + "TissueMASK" + "\\" + tissuetitle + "TissueMASK.tif" ); //open tissue mask
+				open( inputDir + subdir + File.separator + "TissueMASK" + File.separator + tissuetitle + "TissueMASK.tif" ); //open tissue mask
 				title = replace(subdirList[i], file_extension, "");  //remove the ".tif extension"
 			}
 			rename("IMG");		
@@ -335,7 +335,7 @@ for (k=0; k<subFolderList.length;k++){
 			
 	
 			
-			File.makeDirectory(inputDir + subdir + "\\" + outputname); //make a subdirectory in the ROI folder
+			File.makeDirectory(inputDir + subdir + File.separator + outputname); //make a subdirectory in the ROI folder
 			 for (x = 0; x < numCol; x++) { 
 						if(x==0){
 							offsetX = 0;						
@@ -387,13 +387,13 @@ for (k=0; k<subFolderList.length;k++){
 	 					makeRectangle(offsetX, offsetY, tileWidthoverlap, tileHeightoverlap); 
 					}
  					run("Crop"); 
- 					saveAs("Tiff",inputDir + subdir + "\\" + outputname + "\\"  + tileTitle);
+ 					saveAs("Tiff",inputDir + subdir + File.separator + outputname + File.separator  + tileTitle);
  					close(tileTitle + ".tif" );					
 				 }
 			}	
-			File.makeDirectory(inputDir + subdir + "\\" + "vascularMASK"); //make a subdirectory in the ROI folder
+			File.makeDirectory(inputDir + subdir + File.separator + "vascularMASK"); //make a subdirectory in the ROI folder
 			//save output mask 
-			saveAs("Tiff",inputDir + subdir + "\\" + "vascularMASK" + "\\" + title + "vascularMASK_chan" + i + ".tif");
+			saveAs("Tiff",inputDir + subdir + File.separator + "vascularMASK" + File.separator + title + "vascularMASK_chan" + i + ".tif");
 			close("IMG-1");
 			
 			if (save_validation_image == "Yes") {
@@ -401,7 +401,7 @@ for (k=0; k<subFolderList.length;k++){
 				open( inputDir + subdir +  subdirList[i] ); //open stitched images
 				rename("IMG");
 				
-				open( inputDir + subdir + "\\" + "TissueMASK" + "\\" + title + "TissueMASK.tif" ); //open tissue mask
+				open( inputDir + subdir + File.separator + "TissueMASK" + File.separator + title + "TissueMASK.tif" ); //open tissue mask
 				rename("tissueMask");
 				run("Divide...", "value=255");
 				
@@ -420,7 +420,7 @@ for (k=0; k<subFolderList.length;k++){
 				
 				imageCalculator("Add", "IMG",title + "vascularMASK_chan" + i + ".tif");
 				selectWindow("IMG");
-				saveAs("Tiff",inputDir + subdir + "\\" + "vascularMASK" + "\\" + title + "vascularMASK_chan" + i + "_validation_image.tif");
+				saveAs("Tiff",inputDir + subdir + File.separator + "vascularMASK" + File.separator + title + "vascularMASK_chan" + i + "_validation_image.tif");
 				close(title + "vascularMASK_chan" + i + "_validation_image.tif");
 			}
 			//
