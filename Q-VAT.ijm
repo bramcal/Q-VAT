@@ -33,7 +33,7 @@
 
 setBatchMode( true );
 // Make a list of the subfolders inside the input directory
-inputDir = inputDir1 + "\\"
+inputDir = inputDir1 + File.separator
 subFolderList = getFileList(inputDir);
 
 Threshold = ThresholdDiameter/calibration //convert threshold from µm to pixels
@@ -135,35 +135,35 @@ for (k=0; k<subFolderList.length;k++){
 		branch_dens_below_chan3 =  newArray(fileList.length);
 	}
 	
-	outputDir1 = ROIsrcDir + "masked_file"+ "\\" + "channel1";
-	outputDir2 = ROIsrcDir + "masked_file"+ "\\" + "channel2";
-	outputDir3 = ROIsrcDir + "masked_file"+ "\\" + "channel3";
+	outputDir1 = ROIsrcDir + "masked_file"+ File.separator + "channel1";
+	outputDir2 = ROIsrcDir + "masked_file"+ File.separator + "channel2";
+	outputDir3 = ROIsrcDir + "masked_file"+ File.separator + "channel3";
 			
 	//remove output files if they already exist (to avoid adding lines to an exsisting excel file)
-	if (File.exists(outputDir1 + "\\")){
-		list = getFileList(outputDir1 + "\\");
+	if (File.exists(outputDir1 + File.separator)){
+		list = getFileList(outputDir1 + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(outputDir1 + "\\" + list[j]);
+			ok=File.delete(outputDir1 + File.separator + list[j]);
 		}
-		ok=File.delete(outputDir1 + "\\");
+		ok=File.delete(outputDir1 + File.separator);
 	}
-	if (File.exists(outputDir2 + "\\")){
-		list = getFileList(outputDir2 + "\\");
+	if (File.exists(outputDir2 + File.separator)){
+		list = getFileList(outputDir2 + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(outputDir2 + "\\" + list[j]);
+			ok=File.delete(outputDir2 + File.separator + list[j]);
 		}
-		ok=File.delete(outputDir2 + "\\");
+		ok=File.delete(outputDir2 + File.separator);
 	}
-	if (File.exists(outputDir3 + "\\")){
-		list = getFileList(outputDir3 + "\\");
+	if (File.exists(outputDir3 + File.separator)){
+		list = getFileList(outputDir3 + File.separator);
 		for (j=0; j<list.length; j++){					
-			ok=File.delete(outputDir3 + "\\" + list[j]);
+			ok=File.delete(outputDir3 + File.separator + list[j]);
 		}
-		ok=File.delete(outputDir3 + "\\");
+		ok=File.delete(outputDir3 + File.separator);
 	}	
 	
-	if (File.exists(ROIsrcDir + "masked_file" + "\\")){
-		ok=File.delete(ROIsrcDir + "masked_file" + "\\");
+	if (File.exists(ROIsrcDir + "masked_file" + File.separator)){
+		ok=File.delete(ROIsrcDir + "masked_file" + File.separator);
 		ROIfileList = getFileList(ROIsrcDir); // list of al	tissue mask tiles
 	}				
 	else{
