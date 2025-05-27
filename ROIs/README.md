@@ -1,4 +1,4 @@
-# **Perform Region-specific analysis usinng Q-VAT**
+# **Perform Region-specific analysis using Q-VAT**
 
 Instead of using Q-VAT for the entire tissue mask, you can also perform region-specific analysis. This allows you to investigate a specific region, ignore parts of the sample that are not stained well, or compare differences between different ROIs. To perform Q-VAT on an ROI, you should provide Q-VAT with an ROI rather than the tissue mask of the entire tissue section. 
 
