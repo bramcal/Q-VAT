@@ -108,6 +108,10 @@ for (k=0; k<subFolderList.length;k++){
 		if ( endsWith( subdirList[i], file_extension) ) { 
 			open( inputDir + subdir +  subdirList[i] ); //open stitched images
 			
+			// Set tissuetitle to always use the first channel (subdirList[1]) for tissue mask
+			tissuetitle = replace(subdirList[1], file_extension, "");  //remove the ".tif extension"
+			title = replace(subdirList[i], file_extension, "");  //remove the ".tif extension"
+			
 			if (i==1){
 				outputname = "01_split_vascular_mask";
 			}
@@ -310,9 +314,7 @@ for (k=0; k<subFolderList.length;k++){
 			}
 			
 			if (i==2 || i==3){
-				tissuetitle = replace(subdirList[1], file_extension, "");  //remove the ".tif extension"
 				open( inputDir + subdir + File.separator + "TissueMASK" + File.separator + tissuetitle + "TissueMASK.tif" ); //open tissue mask
-				title = replace(subdirList[i], file_extension, "");  //remove the ".tif extension"
 			}
 			rename("IMG");		
 			run("Divide...","value=255.000");
@@ -401,7 +403,7 @@ for (k=0; k<subFolderList.length;k++){
 				open( inputDir + subdir +  subdirList[i] ); //open stitched images
 				rename("IMG");
 				
-				open( inputDir + subdir + File.separator + "TissueMASK" + File.separator + title + "TissueMASK.tif" ); //open tissue mask
+				open( inputDir + subdir + File.separator + "TissueMASK" + File.separator + tissuetitle + "TissueMASK.tif" ); //open tissue mask
 				rename("tissueMask");
 				run("Divide...", "value=255");
 				
