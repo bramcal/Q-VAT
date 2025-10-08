@@ -286,6 +286,12 @@ if (fileList.length == ROIfileList.length) {
 						
 					if (costaining_channels == "Channel 2" || costaining_channels == "Channel 2 & 3") {						
 						if (fileList.length == fileList_channel2.length){
+							// Ensure ROI window exists for Channel 2 processing
+							if (!isOpen("ROI")) {
+								open (ROIsrcDir + ROIfileList[i]); //reopen ROI tile image
+								rename("ROI");
+								run("8-bit");
+							}
 							Analyze_Tile(srcDir, fileList[i], srcDir_two, fileList_channel2[i],outputDir2, masked_voxel_area, Threshold_Fillholes, Save_Output_Figures,prune_threshold,calibration, voxel_size);
 							
 							selectWindow("Results"); // there is no results table if output figure is empty! 
@@ -382,6 +388,12 @@ if (fileList.length == ROIfileList.length) {
 						}
 					}
 					if (costaining_channels == "Channel 2 & 3") {							
+							// Ensure ROI window exists for Channel 3 processing
+							if (!isOpen("ROI")) {
+								open (ROIsrcDir + ROIfileList[i]); //reopen ROI tile image
+								rename("ROI");
+								run("8-bit");
+							}
 							Analyze_Tile(srcDir, fileList[i], srcDir_three, fileList_channel3[i], outputDir3, masked_voxel_area, Threshold_Fillholes, Save_Output_Figures,prune_threshold,calibration, voxel_size );		 
 							
 							selectWindow("Results"); // there is no results table if output figure is empty! 
@@ -399,7 +411,7 @@ if (fileList.length == ROIfileList.length) {
 								branchpointdens_chan3 = Table.getColumn("Branchpoint density (#/mm²)"); 
 								endpointdensdens_chan3 = Table.getColumn("Endpoint density (#/mm²)");
 								
-								diameterabove_chan3 = Table.getColumn("Mean vessel diameter above treshold (µm)"); 
+								diameterabove_chan3 = Table.getColumn("Mean vessel diameter above threshold (µm)"); 
 								vasculardensabove_chan3 = Table.getColumn("Vascular density above threshold (%)");
 								vessellengthdensabove_chan3 = Table.getColumn("Vessel length density above threshold (mm/mm²)");
 								branchdensabove_chan3 = Table.getColumn("Branch density above threshold (#/mm²)");
@@ -633,6 +645,12 @@ exit();
 
 function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_area, Threshold_Fillholes, Save_Output_Figures, prune_threshold, calibration, voxel_size ){					
 
+	// Duplicate ROI image to create a working copy for this function call
+	// This prevents interference between multiple Analyze_Tile calls for different channels
+	selectWindow("ROI");
+	run("Duplicate...", " ");
+	rename("ROI_work");
+
 	open(Dir + Chan1List); //open one tile image
 	Stack.setXUnit("pixel");
 	Stack.setYUnit("pixel");
@@ -643,10 +661,12 @@ function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_a
 	setOption("BlackBackground", false); 	//set unit to 1 pixel 
 	run("Convert to Mask"); //convert to mask
 
-	imageCalculator("Multiply create", "ROI" ,"IMG"); //Multiply TIssue mask and vascular mask
+	imageCalculator("Multiply create", "ROI_work" ,"IMG"); //Multiply Tissue mask and vascular mask
 	
 	close("IMG");
-	selectWindow("Result of ROI");
+	close("ROI_work"); // Clean up the working copy
+	selectWindow("Result of ROI_work");
+	rename("Result of ROI"); // Rename to match expected name for rest of function
 	
 	if (chanDir == "None"){}
 	else {
@@ -679,7 +699,10 @@ function Analyze_Tile(Dir, Chan1List, chanDir, ChanList, savedir, masked_voxel_a
 	close("Seg"); 
 	close("Result of ROI");
 	
-	selectWindow("CloseLabels");
+	// Get the name of the window created by 3D Binary Close Labels operation
+	// This is more robust than assuming it's always named "CloseLabels"
+	closeLabelsWindowName = getTitle();
+	selectWindow(closeLabelsWindowName);
 	rename("Masked_IMG"); 
 	selectWindow("Masked_IMG");
 	setOption("BlackBackground", false);
